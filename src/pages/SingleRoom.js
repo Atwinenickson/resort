@@ -3,7 +3,8 @@ import defaultBcg from '../images/room-1.jpeg'
 import Hero from '../components/Hero'
 import Banner from '../components/Banner'
 import {Link} from 'react-router-dom'
-import {RoomContext} from '../context'
+import { RoomContext } from '../context'
+import StyledHero from '../components/StyledHero'
 
 export default class SingleRoom extends Component {
     constructor(props){
@@ -29,15 +30,15 @@ export default class SingleRoom extends Component {
             </div>
             );
         }
-        const {name,description,capacity,price,extras,breakfast,pets,images} = room
+        const { name, description, capacity, price, extras, breakfast, pets, images } = room;
         return (
-            <Hero hero='roomsHero'>
+            <StyledHero img={images[0]}>
                 <Banner title={`${name} room`}>
                     <Link to='/rooms' className='btn-primary'>
                         back to rooms
                     </Link>
-               </Banner>
-            </Hero>
-        )
+                </Banner>
+            </StyledHero>
+        );
     }
 }
