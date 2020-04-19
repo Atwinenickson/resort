@@ -39,7 +39,7 @@ class RoomProvider extends Component {
     render() {
         return (
             <RoomContext.Provider value={{...this.state, getRoom:this.getRoom}}>
-                {this.props.Children}
+                {this.props.children}
             </RoomContext.Provider>
         );
     }
