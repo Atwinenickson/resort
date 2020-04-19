@@ -31,14 +31,24 @@ export default class SingleRoom extends Component {
             );
         }
         const { name, description, capacity, price, extras, breakfast, pets, images } = room;
+        const [mainImg, ...defaultImg] = images;
         return (
-            <StyledHero img={images[0]}>
+            <>
+            <StyledHero img={mainImg || this.state.defaultBcg}>
                 <Banner title={`${name} room`}>
                     <Link to='/rooms' className='btn-primary'>
                         back to rooms
                     </Link>
                 </Banner>
-            </StyledHero>
+                </StyledHero>
+                <section className="single-room">
+                    <div className="single-room-images">
+                        {defaultImg.map((item,index) => {
+                         return   <img key={index} src={item} alt={name}/>
+                        })}
+                    </div>
+                </section>
+                </>
         );
     }
 }
